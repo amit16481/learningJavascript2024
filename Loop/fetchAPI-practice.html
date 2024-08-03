@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+<body>
+    <button id="btn">Call API!</button>
+    <div id="demo"></div>
+    <table id="table" border="1" cellpadding="5"></table>
+    <script>
+        let URL = "http://localhost:1337/api/main-pages?populate=*";
+        let demo = document.querySelector("#demo");
+        
+        let btn = document.querySelector("#btn");
+
+        
+
+
+        /**************************  Async Await start here **************************/
+        // const getDataApi = async ()=> {
+        //     let response = await fetch(URL);
+        //     let data = await response.json();
+        //     let table = document.querySelector("#table");
+        //     var lastNames = data.data.map((user)=>{
+        //        return user.attributes.description.map((item) => {
+        //           return item.children.map((obj)=>{
+        //                 console.log(obj.text);
+        //             return `<tr><td>${obj.text}</td></tr>`
+        //             })
+                    
+        //         })
+                
+        //         //console.log(obj.text);
+        //     });
+        //     console.log(lastNames);
+        //     let strr = lastNames.join(" "); 
+        //     table.innerHTML = strr;
+            
+        // }
+        //  btn.addEventListener("click", getDataApi);
+
+        /**************************  Async Await end here **************************/
+
+
+
+
+
+        /**************************  Promise start here **************************/
+        function getDataThen(){
+            fetch(URL).then((res)=>{
+                return res.json()
+            }).then((data)=>{
+                
+
+                var lastNames = data.data.map((user)=>{
+                    console.log(user.attributes.title);
+                    return `<tr><td>${user.attributes.title}</td></tr>`
+                //console.log(obj.text);
+            });
+                
+                
+                let str = lastNames.join(" ");
+                table.innerHTML = str;
+            })
+        }
+         getDataThen()
+        btn.addEventListener("click", getDataThen);
+        /**************************  Promise start here **************************/
+    </script>
+</body>
+</html>

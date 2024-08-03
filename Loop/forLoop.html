@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Javascript</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button onclick="btnClick()" id="btn">Click Me!</button>
+    <p id="demo"></p>
+
+
+    <h1>Print Input Value to Div</h1>
+    <input type="text" id="inputField" placeholder="Enter something...">
+    <button onclick="printValue()">Print</button>
+    <div id="outputDiv"></div>
+    <script>
+        // let sum = 0;
+        // for(let i=1;i<=100;i++) {
+        //     sum = i*2; 
+        //     document.write(sum + "<br>");
+        // }
+
+       
+       
+        var btnClick = document.querySelector("#btn")
+        btnClick.addEventListener("click", function() {
+            var userName = document.querySelector("#name").value;
+            var demo = document.querySelector("#demo");
+             demo.innerText = `@${userName.toLowerCase().split(" ").join("")}${userName.length}`
+        });
+
+
+
+        function printValue() {
+            // Get the input value
+            var inputValue = document.querySelector("#inputField").value;
+            // Set the value to the div
+            document.getElementById("outputDiv").innerText = `@${inputValue} ${inputValue.length}`;
+        }
+
+        
+        
+        
+    </script>
+</body>
+</html>

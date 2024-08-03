@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+    
+
+    <script>
+        /**************************  Callback function start here **************************/
+        // function getData(dataID, callBack) {
+        //     setTimeout(function(){
+        //         console.log("dataID "+ dataID);
+        //         callBack();
+        //     },2000)
+            
+        // }
+        // console.log("First data is coming...")
+        // getData(1, ()=>{
+        //     console.log("Second data is coming...")
+        //     getData(2, ()=> {
+        //         console.log("Third data is coming...")
+        //         getData(3, ()=>{
+        //             console.log("Finally Done!")
+
+        //         })
+        //     })
+        // });
+        /**************************  Callback function end here **************************/
+
+
+        /**************************  Promise start here **************************/
+        // function getData(dataID) {
+        //     return new Promise((resolve,reject)=>{
+        //         setTimeout(()=>{
+        //             console.log("Data ID is " + dataID);
+        //             resolve("Success");
+        //         },2000);
+        //     })
+        // }
+        // console.log("First data is coming...")
+        // getData(1).then(()=>{
+        //     console.log("Second data is coming...")
+        //     return getData(2);
+        // }).then(()=>{
+        //     console.log("Third data is coming...")
+        //     return getData(3);
+            
+        // })
+
+        /**************************  Promise end here **************************/
+
+        /**************************  Async Await start here **************************/
+         function getData(dataID) {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve("Success");
+                    console.log("Data ID is " + dataID);
+                    
+                },2000);
+            })
+        };
+
+        (async function wheatherData() {
+            console.log("First data is coming...")
+            await getData(1);
+            console.log("Second data is coming...")
+            await getData(2);
+            console.log("Third data is coming...")
+            await getData(3);
+            console.log("Finally Done!")
+        })()
+
+        /**************************  Async Await end here **************************/
+
+
+
+        
+
+        //let promise = new Promise((resolve,reject)=>{
+            //resolve("Success");
+           // reject("There are some errors");
+           // console.log("Hi I am a Promise");
+        //})
+
+        
+        // function apiData(dataID) {
+        //     return new Promise((resolve,reject)=>{
+        //         setTimeout(function(){
+        //             console.log("dataID is " + dataID);
+        //             resolve("This is Success");
+        //         },5000);
+        //     });
+        // }
+        // let p1 = apiData("Bhoot");
+        // p1.then((res)=>{
+        //     console.log("ApiData is coming " + res)
+        // });
+
+
+
+
+        // function promiseFunc() {
+        //     return new Promise((res,err)=>{
+        //         setTimeout(()=>{
+        //             //console.log("This is first Promise");
+        //             res("ho gya success");
+        //         },3000)
+        //     })
+        // }
+        // let finalVal = promiseFunc();
+
+        // finalVal.then((res)=>{
+        //     console.log("Then wala bhi ho gya! " + res);
+        // })
+
+
+       /**************************  Promise start here **************************/
+        // function amit(mainID) {
+        //     return new Promise((resolve,reject)=>{
+        //         setTimeout(()=>{
+        //             console.log("Data ID is "  + mainID)
+        //         resolve("Success")
+        //         },3000)
+                
+        //     })
+        // }
+
+        // amit(1).then((res)=>{
+        //     console.log("Waiting for 2 id...");
+        //     return amit(2);
+        // }).then((res)=>{
+        //     console.log("Waiting for 3 id...");
+        //     return amit(3);
+        // }).then((res)=>{
+        //     console.log("Finally Done!")
+        // });
+
+        /**************************  Promise end here **************************/
+        
+    </script>
+</body>
+</html>

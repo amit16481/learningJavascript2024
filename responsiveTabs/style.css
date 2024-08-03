@@ -1,0 +1,54 @@
+/* styles.css */
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.tab {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.tab.active, .tab:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.dropdown {
+    display: none;
+    margin-top: 1rem;
+}
+
+.tab-content {
+    margin-top: 1rem;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tabs {
+        display: none;
+    }
+
+    .dropdown {
+        display: block;
+    }
+}

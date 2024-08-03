@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Image to Play YouTube Video</title>
+</head>
+
+<body>
+    <div style="width: 100%; display: flex; flex-wrap: wrap;">
+        <div style="margin-right: 50px;" class="video_wrap">
+            <img class="thumbnail" src="https://img.youtube.com/vi/1tEZR9WBLXU/maxresdefault.jpg" alt="Thumbnail"
+                style="width: 300px; cursor: pointer;">
+            <div class="video-container" style="display: none;" data-video-id="1tEZR9WBLXU">
+                <iframe class="youtube-video" width="560" height="315" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div style="margin-right: 50px;" class="video_wrap">
+            <img class="thumbnail" src="https://img.youtube.com/vi/1tEZR9WBLXU/maxresdefault.jpg" alt="Thumbnail"
+                style="width: 300px; cursor: pointer;">
+            <div class="video-container" style="display: none;" data-video-id="cfXlrV05i1c">
+                <iframe class="youtube-video" width="560" height="315" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <script>
+
+    document.querySelectorAll('.thumbnail').forEach(function(thumbnail) {
+        thumbnail.addEventListener('click', function() {
+            document.querySelectorAll('.video_wrap').forEach(function(videoWrap) {
+                videoWrap.querySelectorAll('.thumbnail').forEach(function(siblingThumbnail) {
+                    siblingThumbnail.style.display = 'block';
+                    siblingThumbnail.style.border = '2px solid red';
+                });
+            });
+
+            this.style.display = 'none';
+
+            var videoWrap = this.closest('.video_wrap');
+            var videoContainer = videoWrap.querySelector('.video-container');
+            var dataId = videoContainer.getAttribute('data-video-id');
+            var iframe = videoWrap.querySelector('.youtube-video');
+
+            document.querySelectorAll('.video_wrap .video-container').forEach(function(container) {
+                container.style.display = 'none';
+            });
+
+            document.querySelectorAll('.video_wrap .youtube-video').forEach(function(mainIframe) {
+                mainIframe.setAttribute('src', '');
+            });
+
+            iframe.setAttribute('src', 'https://www.youtube.com/embed/' + dataId + '?autoplay=1');
+            videoContainer.style.display = 'block';
+        });
+    });
+
+
+
+    </script>
+ 
+</body>
+
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 100%; display: flex; flex-wrap: wrap;">
+        <div style="margin-right: 50px;" class="video_wrap">
+            <img class="thumbnail" src="https://img.youtube.com/vi/1tEZR9WBLXU/maxresdefault.jpg" alt="Thumbnail"
+                style="width: 300px; cursor: pointer;">
+                <div class="video-container" style="display: none;" data-video-id="1tEZR9WBLXU">
+                    <iframe class="youtube-video" width="560" height="315" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+        </div>
+
+        <div style="margin-right: 50px;" class="video_wrap">
+            <img class="thumbnail" src="https://img.youtube.com/vi/1tEZR9WBLXU/maxresdefault.jpg" alt="Thumbnail"
+                style="width: 300px; cursor: pointer;">
+                <div class="video-container" style="display: none;" data-video-id="cfXlrV05i1c">
+                    <iframe class="youtube-video" width="560" height="315" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+
+
+        $(function(){
+            //console.log('hello');
+            $('.thumbnail').on('click', function () {
+                $('.video_wrap').siblings().find(".thumbnail").css({ "display": "block", "border": "2px solid red" });
+                $(this).hide();
+                var dataId = $(this).parent('.video_wrap').find('.video-container').attr('data-video-id');
+                var $videoContainer = $(this).parent('.video_wrap').find('.video-container');
+                var mainContainer = $('.video_wrap').find('.video-container');
+                var mainIframe = $('.video_wrap').find('.youtube-video');
+                var iframe = $(this).parent('.video_wrap').find('.youtube-video');
+                mainContainer.hide();
+                mainIframe.attr('src', '');
+                iframe.attr('src', 'https://www.youtube.com/embed/' + dataId + '?autoplay=1');
+                $videoContainer.show();
+            })
+
+        })
+
+    </script>
+
+</body>
+</html>

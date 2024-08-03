@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="demo">
+
+    </ul>
+    
+    <script>
+        /********
+        for(let k = 1; k<=10; k++){
+            for(let j = 1; j<=5; j++){
+                for(let i= 1; i<=5; i++ ){
+                    document.write("B")
+                }
+                document.write("A")
+            }
+            document.write("*" + "<br />");
+        } **********/
+        let demo = document.querySelector("#demo");
+        
+        const object = {
+            name : "Amit",
+            age : 42,
+            address : "Delhi"
+        }
+        const fullData = [10, 20, 30, 40, 50];
+        
+        // for(let obj in object){
+        //     document.write(`My full information is ${obj} : <b>${object[obj]}</b><br>  `);
+        // }
+
+        
+        // for(let char of fullData){
+        //     document.write(char + "<br>")
+        // }
+
+        // fullData.forEach((str)=>{
+        //     const li = document.createElement('li');
+        //     li.innerText = str;
+        //         demo.appendChild(li); 
+        // });
+        let sum ="";
+
+        fullData.forEach((str)=>{
+           sum +=  `<li>${str}</li>`
+        })
+        demo.innerHTML = sum;
+
+    //    let totalData = fullData.map((str)=>{
+    //         return `<li>${str}</li>`
+    //    });
+    //    let finalData = totalData.join(" ");
+    //    demo.innerHTML = finalData;
+    </script>
+</body>
+</html>

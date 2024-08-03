@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tabs with Dropdown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tabs-container">
+        <ul class="tabs">
+            <li class="tab active" data-content="tab1">Tab 1</li>
+            <li class="tab" data-content="tab2">Tab 2</li>
+            <li class="tab" data-content="tab3">Tab 3</li>
+        </ul>
+        <select class="dropdown">
+            <option value="tab1">Tab 1</option>
+            <option value="tab2">Tab 2</option>
+            <option value="tab3">Tab 3</option>
+        </select>
+    </div>
+    <div class="tab-content">
+        <div id="tab1" class="content active">Content for Tab 1</div>
+        <div id="tab2" class="content">Content for Tab 2</div>
+        <div id="tab3" class="content">Content for Tab 3</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

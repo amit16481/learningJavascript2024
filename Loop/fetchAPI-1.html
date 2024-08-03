@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Second</title>
+</head>
+
+<body>
+    <table id="table" border="1" cellpadding="5"></table>
+    <ul id="box">
+
+    </ul>
+    <div class="dropdown">
+        <select name="" id="country"></select>
+    </div>
+
+
+
+    <script src="codes.js"></script>
+    <script>
+       
+
+
+            /*********************** For In Loop ***********************/
+            // for (currCode in countryList) {
+            //     let dropdowns = document.querySelector(".dropdown select");
+            //     let newOption = document.createElement("option");
+            //     newOption.innerText = currCode;
+            //     newOption.value = currCode;
+            //     dropdowns.append(newOption);
+            // }
+
+            /*********************** For of Loop ***********************/
+            const countryListNew = ["Amit", "Dharam", "Abhishek", "Bhagesh"]
+            for (currCode of countryListNew) {
+                let dropdowns = document.querySelector(".dropdown select");
+                let newOption = document.createElement("option");
+                newOption.innerText = currCode;
+                newOption.value = currCode;
+                dropdowns.append(newOption);
+                console.log(currCode);
+            }
+
+            
+
+           
+        
+
+
+
+        let URL = "https://cat-fact.herokuapp.com/facts";
+        let box = document.querySelector("#box");
+        const getAPI = async () => {
+            let response = await fetch(URL);
+            let data = await response.json();
+            let fullName = data.map((obj) => {
+                return `<li>${obj.text}</li>`
+            });
+            let lastName = fullName.join(" ");
+            box.innerHTML = lastName;
+            console.log(data);
+        }
+        getAPI();
+
+
+        /*
+        function callAPI(){
+            let URL = "https://cat-fact.herokuapp.com/facts";
+            let table = document.querySelector("#table");
+        fetch(URL).then((response)=>{
+            return response.json();
+        }).then((data)=>{
+            let mainStr = data.map((obj)=>{
+                return `<tr><td>${obj.text}</td></tr>`
+            });
+            let finalStr = mainStr.join(" ");
+            table.innerHTML = finalStr;
+        })
+        }
+        callAPI();
+        */
+
+
+    </script>
+</body>
+
+</html>

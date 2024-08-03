@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+<body>
+    <button id="btn">Call API!</button>
+    <div id="demo"></div>
+    <table id="table" border="1" cellpadding="5"></table>
+    <script>
+        let URL = "https://cat-fact.herokuapp.com/facts";
+        let demo = document.querySelector("#demo");
+        let table = document.querySelector("#table");
+        let btn = document.querySelector("#btn");
+
+        /**************************  Async Await start here **************************/
+        const getDataApi = async ()=> {
+            let response = await fetch(URL);
+            let data = await response.json();
+            var lastNames = data.map((obj)=>{
+                return `<tr><td>${obj.text}</td></tr>`
+                //console.log(obj.text);
+            });
+            let strr = lastNames.join(" "); 
+            table.innerHTML = strr;
+            
+        }
+         btn.addEventListener("click", getDataApi);
+
+        /**************************  Async Await end here **************************/
+
+
+
+
+
+        /**************************  Promise start here **************************/
+        // function getDataThen(){
+        //     fetch(URL).then((res)=>{
+        //         return res.json()
+        //     }).then((data)=>{
+        //         const userNames = data.map((user)=>{
+        //             return `<p>${user.text}</p>`
+        //         })
+        //         //const userNames = data.map(user => `<p>${user.text}</p>`);
+        //         console.log(data[1].text);
+        //         let str = userNames.join(" ");
+        //         demo.innerHTML = str;
+        //     })
+        // }
+        // btn.addEventListener("click", getDataThen);
+        /**************************  Promise start here **************************/
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="demo">
+        <li>Apple</li><li>Mongo</li><li>Grapes</li><li>Lichi</li><li>Angoor</li>
+    </ul>
+
+    <script>
+    //     let fruits = ["Apple", "Mongo", "Grapes", "Lichi", "Angoor"];
+    //     let demo = document.querySelector("#demo");
+    //     let sum ="";
+    //    fruits.forEach((obj)=>{
+    //      sum += `<li>${obj} is a fruits</li>`;
+    //      console.log(obj);
+    //      demo.innerHTML = sum;
+    //    })
+    let demo = document.querySelector("#demo li");
+    let main = demo.innerHTML;
+    main.forEach((obj)=>{
+        console.log(obj);
+    })
+    </script>
+</body>
+</html>

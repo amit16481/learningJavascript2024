@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repeated Character Count</title>
+</head>
+<body>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button id="countBtn">Count Repeated Characters</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('countBtn').addEventListener('click', () => {
+            const str = document.getElementById('inputString').value;
+            const charCount = {};
+
+            for (let char of str) {
+                char = char.toLowerCase(); 
+                if (charCount[char]) {
+                    charCount[char]++;
+                } else {
+                    charCount[char] = 1;
+                }
+            }
+            const repeatedChars = {};
+            for (let char in charCount) {
+                if (charCount[char] > 1) {
+                    repeatedChars[char] = charCount[char];
+                }
+            }
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // Clear previous results
+            if (Object.keys(repeatedChars).length > 0) {
+                for (let char in repeatedChars) {
+                    resultDiv.innerHTML += `<p>${char}: ${repeatedChars[char]}</p>`;
+                }
+            } else {
+                resultDiv.innerHTML = '<p>No repeated characters found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
